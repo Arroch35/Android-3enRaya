@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean rojo=true;
     private String[][] tablero= new String[3][3];
     private boolean ganado=false;
-    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void rellenar(View v){
-        //Falta lo de reiniciar
         if(!ganado){
             ImageView casilla= (ImageView) v;
             String[] pos=v.getTag().toString().split(",");
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     rojo=true;
                 }
                 casilla.setTranslationY(-1000);
-                casilla.animate().translationYBy(1000).rotation(3600).setDuration(500);
+                casilla.animate().translationYBy(1000).rotation(3600).setDuration(1000);
                 if(ganar()){
                     ganado=true;
                     if(rojo){
@@ -96,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sonido(){
+        MediaPlayer mp;
         if(rojo){
             mp=MediaPlayer.create(this, R.raw.rojo);
         } else{
