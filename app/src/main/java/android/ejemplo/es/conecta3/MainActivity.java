@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     rojo=true;
                 }
                 casilla.setTranslationY(-1000);
-                casilla.animate().translationYBy(1000).rotation(3600).setDuration(500);
+                casilla.animate().translationYBy(1000).rotation(3600).setDuration(1000);
                 if(ganar()){
                     ganado=true;
                     if(rojo){
